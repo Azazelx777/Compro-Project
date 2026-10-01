@@ -164,9 +164,9 @@ def stats():
 
     return {
         "total_rentals": len(active),
-        "borrowing_now": len(borrowing),
+        "total_active_rentals": len(borrowing),
         "returned": len(returned),
         "deleted": len(all_records) - len(active),
-        "total_fines": sum(r["fine_amount"] for r in returned),
-        "overdue_now": sum(1 for r in borrowing if r["due_date"] < now),
+        "total_fine_collected": sum(r["fine_amount"] for r in returned),
+        "overdue_rentals": sum(1 for r in borrowing if r["due_date"] < now),
     }
